@@ -1,3 +1,5 @@
+console.log('ml-capture.js cargado');
+
 function getCookie(name) {
   var value = '; ' + document.cookie;
   var parts = value.split('; ' + name + '=');
@@ -6,6 +8,8 @@ function getCookie(name) {
 }
 
 document.addEventListener('ml-form-success', function(e) {
+  console.log('ml-form-success disparado!');
+  
   var email = document.querySelector('input[type="email"]') ? document.querySelector('input[type="email"]').value : '';
   var fname = document.querySelector('input[name="fields[name]"]') ? document.querySelector('input[name="fields[name]"]').value : '';
 
