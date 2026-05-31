@@ -7,6 +7,14 @@ function getCookie(name) {
   return '';
 }
 
+// Detectar el evento correcto
+var originalAddEventListener = EventTarget.prototype.addEventListener;
+EventTarget.prototype.addEventListener = function(type, listener, options) {
+  if (type.indexOf('ml') !== -1 || type.indexOf('ML') !== -1) {
+    console.log('Evento MailerLite detectado:', type);
+  }
+  originalAddEventListener.call(this, type, listener, options);
+};
 document.addEventListener('ml-form-success', function(e) {
   console.log('ml-form-success disparado!');
   
